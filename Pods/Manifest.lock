@@ -1,0 +1,89 @@
+PODS:
+  - AFDateHelper (4.2.4)
+  - Alamofire (4.5.1)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - EVReflection/Alamofire (4.9.1):
+    - Alamofire (~> 4.2)
+    - EVReflection/Core
+  - EVReflection/Core (4.9.1)
+  - EVReflection/Moya (4.9.1):
+    - EVReflection/Alamofire
+    - Moya (~> 8.0)
+  - EVReflection/MoyaRxSwift (4.9.1):
+    - EVReflection/Moya
+    - Moya/RxSwift
+  - EVReflection/Realm (4.9.1):
+    - EVReflection/Core
+    - RealmSwift
+  - Moya (8.0.5):
+    - Moya/Core (= 8.0.5)
+  - Moya/Core (8.0.5):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (8.0.5):
+    - Moya/Core
+    - RxSwift (~> 3.0)
+  - NVActivityIndicatorView (3.7.0):
+    - NVActivityIndicatorView/Presenter (= 3.7.0)
+  - NVActivityIndicatorView/Presenter (3.7.0)
+  - QueryString (0.2.2)
+  - ReachabilitySwift (3)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
+  - Result (3.2.4)
+  - RxAlamofire (3.0.3):
+    - RxAlamofire/Core (= 3.0.3)
+  - RxAlamofire/Core (3.0.3):
+    - Alamofire (~> 4.0)
+    - RxSwift (~> 3.0)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
+  - SwiftyStarRatingView (1.0.4)
+  - Swinject (2.1.1)
+  - SwinjectStoryboard (1.1.1):
+    - Swinject (~> 2.0)
+
+DEPENDENCIES:
+  - AFDateHelper (= 4.2.4)
+  - Alamofire (~> 4.4)
+  - AlamofireImage (= 3.2.0)
+  - EVReflection/MoyaRxSwift (= 4.9.1)
+  - EVReflection/Realm (= 4.9.1)
+  - NVActivityIndicatorView (= 3.7.0)
+  - QueryString (= 0.2.2)
+  - ReachabilitySwift (= 3)
+  - RealmSwift (= 2.8.3)
+  - RxAlamofire (= 3.0.3)
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
+  - SwiftyStarRatingView (= 1.0.4)
+  - Swinject (~> 2.1.0)
+  - SwinjectStoryboard (= 1.1.1)
+
+SPEC CHECKSUMS:
+  AFDateHelper: fbbf706fc7ef3b12efb8c25493c8dc5b9d18f86a
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  EVReflection: f656ab71b7ed34c0922c6c4836bb77e9b33ca66c
+  Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
+  NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
+  QueryString: de7cee83b6f3b6b708f03842bd5558e895cf8e7c
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SwiftyStarRatingView: a2b0057700e0adeb8e7442c55d99cb53b531d2f4
+  Swinject: afea49fd95f392b41171669f165842879c48fad6
+  SwinjectStoryboard: 4c71c25f312322844d39ee06f0f523db7b9b10a3
+
+PODFILE CHECKSUM: 4e0d8e12d581015db78138cdd4aeec162284397b
+
+COCOAPODS: 1.2.1
