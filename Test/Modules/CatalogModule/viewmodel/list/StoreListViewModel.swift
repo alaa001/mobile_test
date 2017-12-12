@@ -59,14 +59,9 @@ class StoreListViewModel :BaseViewModel{
     func binding()
     {
         
-        self.filterObservable.asObservable().subscribe(onNext: { (filter) in
-            
-            if let _ = filter
-            {
-                self.getStoresList(filter:filter!)
-            }
-            
-        }).addDisposableTo(disposeBag)
+
+        self.getStoresList()
+     
         
     }
     
@@ -156,11 +151,31 @@ class StoreListViewModel :BaseViewModel{
     
     // MARK:- Call WebService
     
-    func getStoresList(filter:InputParams)
+    func getStoresList()
     {
-        showLoading.onNext(true)
         
         
+        
+        if let savedStores = service.getCachedData()
+        {
+            self.modelList.removeAll()
+            
+            for modelJm in savedStores
+            {
+                self.modelList.append(StoreListItemViewModel(model: modelJm))
+                
+            }
+            
+            self.orgModelList = Array(self.modelList)
+            
+            self.updateViewWithData.onNext(true)
+            
+            
+        }
+        else{
+          showLoading.onNext(true)
+        }
+        /// even though I got cached data, I will get the request for new data and save it with showing any loading UI
         
         service.getStoreList()
             .subscribe(onNext: { (success,data) in

@@ -17,6 +17,8 @@ class StoreDetailsViewModel :BaseViewModel{
     //MARK:- RX
     private var filterObservable = Variable<InputParams?>(nil)
     
+    var  cartCount:Variable<Int> = Variable.init(0)
+    
     
     //MARK:- Services
     private var service : CatalogService
@@ -145,6 +147,38 @@ class StoreDetailsViewModel :BaseViewModel{
         
         
         
+    }
+    
+    func goBackToStoreList()
+    {
+      let selectedItems =   modelList.filter{ x in
+            return x.serviceSelected != nil
+            
+        }
+        
+        if(selectedItems.count > 0) // show confirm msg to clear cart
+        {
+            confirmObservable.value = "Are you sure that you want to clear the cart and go back to store list"
+            return
+        }
+        
+        navigator?.popToStoreList()
+    
+    }
+    
+    func clearCart()
+    {
+        let selectedItems =   modelList.filter{ x in
+            return x.serviceSelected != nil
+            
+        }
+        
+        for item in selectedItems
+        {
+            item.setServiceSelected(serviceType: nil)
+        }
+        
+        goBackToStoreList()
     }
     
     

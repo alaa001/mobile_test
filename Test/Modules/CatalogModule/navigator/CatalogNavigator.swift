@@ -15,20 +15,20 @@ class CatalogNavigator {
     weak var controller:UIViewController?
     
     
-    func showStoreDetails (storeId:Int) -> UIViewController  {
+    func showStoreDetails (storeId:Int)  {
         
-//        let destinationController = SwinjectStoryboard.create(name: "Catalog", bundle: nil).instantiateViewController(withIdentifier: "ProductListViewController") as! ProductListViewController
-//
-//        destinationController.viewModel = viewModel
-//        destinationController.viewModel?.navigator = self
-//
-//        destinationController.viewModel?.setFilter(filter: ProductListViewModel.InputParams(branchId: branchId, typeId: typeId))
-//
-//
-        //return destinationController
+        let destinationController = SwinjectStoryboard.create(name: "Catalog", bundle: nil).instantiateViewController(withIdentifier: "StoreDetailViewController") as! StoreDetailViewController
+
+        destinationController.viewModel?.setFilter(filter: StoreDetailsViewModel.InputParams(storeId:storeId))
         
-        return UIViewController()
+
+        controller?.navigationController?.pushViewController(destinationController, animated: true)
+
         
     }
 
+    
+    func popToStoreList(){
+        controller?.navigationController?.popViewController(animated: true)
+    }
 }

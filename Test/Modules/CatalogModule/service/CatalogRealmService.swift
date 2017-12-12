@@ -15,10 +15,10 @@ class CatalogRealmService :BaseRealmService {
    
     
     //MARK:- Catalog Realm Service
-    func saveStores(areas:[StoreListJM])
+    func saveStores(stores:[StoreListJM])
     {
         try! realm.write {
-            realm.add(areas)
+            realm.add(stores)
             
         }
     }

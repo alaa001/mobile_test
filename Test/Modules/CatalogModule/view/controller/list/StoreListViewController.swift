@@ -147,6 +147,36 @@ extension StoreListViewController :UITableViewDelegate , UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreCell") as! StoreCell
      
+        let storeListItem = self.viewModel!.getStoreItemViewModel(index: indexPath.row)
+            
+        
+        cell.nameLabel.text = storeListItem.getStoreName()
+        cell.ratingV.value = CGFloat(storeListItem.getRating())
+        cell.ratingV.isEnabled = false
+        
+       
+        cell.minOrderValue.text = (storeListItem.getMinOrderAmount().formatPrice()) + " KD"
+        cell.normalServiceValue.text =  storeListItem.hasNormalServices() ? "YES" : "NO"
+        cell.specialServiceValue.text =  storeListItem.hasSpecialsServices() ? "YES" : "NO"
+        
+        cell.trackingImageV.alpha = 0.2
+        if(storeListItem.isTrackingEnabled())
+        {
+            cell.trackingImageV.alpha = 1
+          
+        }
+        
+        
+      
+        
+        
+        
+        
+        if let imageUrl = storeListItem.getImageUrl()
+        {
+            cell.cellImageV.setImage(url:  URL.init(string: imageUrl)!, placeHolder: UIImage.init(imageLiteralResourceName: "default-placeholder"))
+        }
+      
         
         return cell
     }

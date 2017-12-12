@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610A37B51FDEC19F0066C288 /* StoreItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610A37B41FDEC19F0066C288 /* StoreItemCell.xib */; };
+		610A37B71FDEC1C20066C288 /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610A37B61FDEC1C20066C288 /* StoreItemCell.swift */; };
+		617192181FDF095600F6E54B /* PriceFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617192171FDF095600F6E54B /* PriceFormatterHelper.swift */; };
 		61BD8DF61FDEA96A009AACD1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD8DF51FDEA96A009AACD1 /* UIColorExtensions.swift */; };
 		61BD8DF81FDEA9FD009AACD1 /* StoreItemJM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD8DF71FDEA9FD009AACD1 /* StoreItemJM.swift */; };
 		61BD8DFB1FDEAD61009AACD1 /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61BD8DFA1FDEAD61009AACD1 /* StoreCell.xib */; };
@@ -52,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		4181E982670F9E8DE7CBA3E6 /* Pods-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test/Pods-Test.debug.xcconfig"; sourceTree = "<group>"; };
+		610A37B41FDEC19F0066C288 /* StoreItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreItemCell.xib; sourceTree = "<group>"; };
+		610A37B61FDEC1C20066C288 /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCell.swift; sourceTree = "<group>"; };
+		617192171FDF095600F6E54B /* PriceFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatterHelper.swift; sourceTree = "<group>"; };
 		61BD8DF51FDEA96A009AACD1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		61BD8DF71FDEA9FD009AACD1 /* StoreItemJM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemJM.swift; sourceTree = "<group>"; };
 		61BD8DFA1FDEAD61009AACD1 /* StoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
@@ -117,6 +123,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		617192161FDF094D00F6E54B /* PriceFormatterHelper */ = {
+			isa = PBXGroup;
+			children = (
+				617192171FDF095600F6E54B /* PriceFormatterHelper.swift */,
+			);
+			path = PriceFormatterHelper;
+			sourceTree = "<group>";
+		};
 		61BD8DF41FDEA955009AACD1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +144,8 @@
 			children = (
 				61BD8DFA1FDEAD61009AACD1 /* StoreCell.xib */,
 				61BD8DFC1FDEAD87009AACD1 /* StoreCell.swift */,
+				610A37B41FDEC19F0066C288 /* StoreItemCell.xib */,
+				610A37B61FDEC1C20066C288 /* StoreItemCell.swift */,
 			);
 			path = customeCell;
 			sourceTree = "<group>";
@@ -378,6 +394,7 @@
 		61DF7D051FDE851F007BB8B8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				617192161FDF094D00F6E54B /* PriceFormatterHelper */,
 				61BD8DFE1FDEAEF7009AACD1 /* CustomView */,
 				61BD8DF41FDEA955009AACD1 /* Extension */,
 				61DF7D171FDE881C007BB8B8 /* AlertHelper */,
@@ -515,6 +532,7 @@
 				61BD8E001FDEAF32009AACD1 /* CustomSearchView.xib in Resources */,
 				61DF7CBD1FDE7842007BB8B8 /* Assets.xcassets in Resources */,
 				61BD8DFB1FDEAD61009AACD1 /* StoreCell.xib in Resources */,
+				610A37B51FDEC19F0066C288 /* StoreItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +618,8 @@
 				61DF7CF31FDE81A9007BB8B8 /* GlobalResource.swift in Sources */,
 				61BD8DFD1FDEAD87009AACD1 /* StoreCell.swift in Sources */,
 				61DF7CDE1FDE7F7A007BB8B8 /* StoreListViewModel.swift in Sources */,
+				610A37B71FDEC1C20066C288 /* StoreItemCell.swift in Sources */,
+				617192181FDF095600F6E54B /* PriceFormatterHelper.swift in Sources */,
 				61DF7CFA1FDE825D007BB8B8 /* CatalogRestApi.swift in Sources */,
 				61DF7CFE1FDE8447007BB8B8 /* CatalogNavigator.swift in Sources */,
 				61DF7D001FDE84A6007BB8B8 /* StoreDetailViewController.swift in Sources */,

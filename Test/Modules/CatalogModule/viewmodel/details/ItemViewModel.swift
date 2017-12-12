@@ -8,9 +8,19 @@
 
 import Foundation
 
+enum ServiceType {
+    case service1
+    case service2
+    case service3
+}
+
 class ItemViewModel {
     
     var model:StoreItemJM
+    
+    
+    var serviceSelected:ServiceType?
+    
     
     init(model:StoreItemJM) {
         self.model = model
@@ -50,6 +60,16 @@ class ItemViewModel {
     {
         return [model.service1,model.service2,model.service3]
     }
+    
+    
+    func setServiceSelected(serviceType:ServiceType?)
+    {
+        self.serviceSelected = serviceType
+        
+    }
+    
+    
+    
     
 
 }

@@ -45,6 +45,8 @@ class CatalogService {
                         let storeList = StoreListJM(dictionary: (item as! NSDictionary))
                         storeResult.append(storeList)
                     }
+                    self.dbService.deletaAllStores()
+                    self.dbService.saveStores(stores: storeResult)
                 }
                 
                 envelopResult.Result = storeResult
@@ -64,6 +66,18 @@ class CatalogService {
                 
                 
             }, onError: { error in
+                
+                let savedStores = self.dbService.getAllStores()
+                
+                if(savedStores.count > 0)
+                {
+                    let response = EnvelopListResponseApiJM<StoreListJM>()
+                    response.Result = savedStores
+                    response.Success = true
+                    
+                    x.onNext((false,nil))
+                    return
+                }
                 
                 
                 x.onNext((false,nil))
@@ -97,9 +111,13 @@ class CatalogService {
                     {
                         for  item in dictArray
                         {
+                           
                             let storeList = StoreItemJM(dictionary: (item as! NSDictionary))
                             storeResult.append(storeList)
                         }
+                        
+                      
+                        
                     }
                     
                     envelopResult.Result = storeResult
@@ -137,37 +155,22 @@ class CatalogService {
     
     
     
-//
-//    func saveSelectedArea(area:AreaModelJM)
-//    {
-//        let selectedArea = SelectedAreaModel()
-//        selectedArea.Id = area.Id
-//        selectedArea.Name = area.Name
-//        selectedArea.AddressId = area.AddressId
-//        selectedArea.Polygons = area.Polygons
-//
-//        dbService.deleteSelectedArea()
-//        dbService.saveSelectedArea(areaModel: selectedArea)
-//
-//    }
-//
-//
-//
-//    func getSelectedArea()->AreaModelJM?
-//    {
-//        if let savedAddress = dbService.getSelectedAddress()
-//        {
-//            let areaMapped = AreaModelJM()
-//            areaMapped.Id = savedAddress.Id
-//            areaMapped.Name = savedAddress.Name
-//            areaMapped.AddressId = savedAddress.AddressId
-//            areaMapped.Polygons = savedAddress.Polygons
-//            return areaMapped
-//        }
-//
-//        return nil
-//
-//    }
+
+    func getCachedData()->[StoreListJM]?
+    {
+         let savedStores = dbService.getAllStores()
+        
+        if(savedStores.count > 0)
+        {
+                return savedStores
+        }
+        
+        
+        
+        
+        return nil
+
+    }
     
     
     

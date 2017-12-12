@@ -13,9 +13,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let assembler = SwinjectAssembler.sharedInstance
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initial Screen
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.backgroundColor = UIColor.white
+        window.makeKeyAndVisible()
+        self.window = window
+        
+        if (floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber_iOS_9_0) {
+            UIView.appearance().semanticContentAttribute = UISemanticContentAttribute.forceLeftToRight
+            
+            
+        }
+        
+         window.rootViewController = assembler.storListViewController()
+       
+        
         return true
     }
 
