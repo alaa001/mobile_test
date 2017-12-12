@@ -227,43 +227,12 @@ extension StoreDetailViewController :UITableViewDelegate , UITableViewDataSource
         
         cell.servBtn1.rx.tap.bind{() in
             self.selectUnSelectCell( storItemViewModel: storItemViewModel!, cell: cell, serviceType: .service1)
-//            if(storItemViewModel!.serviceSelected != .service1)
-//            {
-//              cell.selectService(serviceType: .service1)
-//              storItemViewModel?.setServiceSelected(serviceType: .service1)
-//                viewModel!.cartCount.value += 1
-//
-//            }
-//            else
-//            {
-//                cell.clearSelection()
-//                storItemViewModel?.setServiceSelected(serviceType: nil)
-//                viewModel!.cartCount.value -= 1
-//
-//            }
-        
         }.addDisposableTo(cell.disposeBag)
         
         
         cell.servBtn2.rx.tap.bind{() in
             
             self.selectUnSelectCell( storItemViewModel: storItemViewModel!, cell: cell, serviceType: .service2)
-
-//            if(storItemViewModel!.serviceSelected != .service2)
-//            {
-//                cell.selectService(serviceType: .service2)
-//                storItemViewModel?.setServiceSelected(serviceType: .service2)
-//                viewModel!.cartCount.value += 1
-//
-//            }
-//            else
-//            {
-//                cell.clearSelection()
-//                storItemViewModel?.setServiceSelected(serviceType: nil)
-//                viewModel!.cartCount.value -= 1
-//
-//            }
-//
             
             }.addDisposableTo(cell.disposeBag)
         
@@ -271,24 +240,6 @@ extension StoreDetailViewController :UITableViewDelegate , UITableViewDataSource
         cell.servBtn3.rx.tap.bind{() in
             
             self.selectUnSelectCell( storItemViewModel: storItemViewModel!, cell: cell, serviceType: .service3)
-
-//            if(storItemViewModel!.serviceSelected != .service3)
-//            {
-//                cell.selectService(serviceType: .service3)
-//                storItemViewModel?.setServiceSelected(serviceType: .service3)
-//                viewModel!.cartCount.value += 1
-//
-//            }
-//            else
-//            {
-//                cell.clearSelection()
-//                storItemViewModel?.setServiceSelected(serviceType: nil)
-//                viewModel!.cartCount.value -= 1
-//
-//            }
-//
-            
-          
             
             }.addDisposableTo(cell.disposeBag)
         
