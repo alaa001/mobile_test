@@ -165,9 +165,13 @@ class StoreDetailViewController : UIViewController
     {
         if(storItemViewModel.serviceSelected != serviceType)
         {
+            if(storItemViewModel.serviceSelected == nil)
+            {
+                viewModel!.cartCount.value += 1
+            }
+            
             cell.selectService(serviceType: serviceType)
             storItemViewModel.setServiceSelected(serviceType: serviceType)
-            viewModel!.cartCount.value += 1
             
         }
         else
