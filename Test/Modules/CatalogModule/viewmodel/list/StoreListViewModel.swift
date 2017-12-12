@@ -16,9 +16,12 @@ class StoreListViewModel :BaseViewModel{
     //MARK:- RX
     private var filterObservable = Variable<InputParams?>(nil)
     
+    private var storeFilterInputParam = Variable<StoreFilterViewModel.InputParams>(StoreFilterViewModel.InputParams())
+    
     var showFilterIndication:BehaviorSubject<Bool> = BehaviorSubject.init(value: false)
     
     
+   
     
     
     //MARK:- Services
@@ -115,38 +118,89 @@ class StoreListViewModel :BaseViewModel{
     
     func showStoreFilter()
     {
-        //let filterInput = getFilterInputObject()
+        let filterInput = getFilterInputObject()
         
-//        self.navigator?.showRestaurnatFilter(filter:filterInput , callBack:{ [unowned self] restaurantFilter in
-//
-//            restaurantFilter.filterObservable.subscribe(onNext: { [unowned self](filterValue) in
-//
-//
-//                if let filter = filterValue
-//                {
-//
-//                    self.checkifItsClear(filter: filter)
-//                    self.setSearchFilter(inputfilter: filter)
-//                }
-//
-//            }).addDisposableTo(self.disposeBag)
-//
-//        })
+        self.navigator?.showStoreFilter(filter:filterInput , callBack:{ [unowned self] restaurantFilter in
+
+            restaurantFilter.filterObservable.subscribe(onNext: { [unowned self](filterValue) in
+
+
+                if let filter = filterValue
+                {
+
+                    self.checkifItsClear(filter: filter)
+                    self.setSearchFilter(inputfilter: filter)
+                }
+
+            }).addDisposableTo(self.disposeBag)
+
+        })
     }
     
+    private func setSearchFilter(inputfilter:StoreFilterViewModel.InputParams?)
+    {
+        
+       if let subscription = storeFilterInputParam.value.hasSubscription
+       {
+            self.modelList = self.orgModelList.filter{ list in
+                
+                return list.hasSubscription() == subscription
+                
+            }
+        
+       }
+        
+        
+        if let asscendingMinOrder = storeFilterInputParam.value.asscendingMinOrder
+        {
+            if(asscendingMinOrder)
+            {
+                self.modelList = self.orgModelList.sorted(by: { (x, y) -> Bool in
+                    x.getMinOrderAmount() < y.getMinOrderAmount()
+                })
+            }
+            else{
+                
+                self.modelList = self.orgModelList.sorted(by: { (x, y) -> Bool in
+                    x.getMinOrderAmount() > y.getMinOrderAmount()
+                })
+            }
+            
+        }
+        
+        
+        if let highToLowRating = storeFilterInputParam.value.highToLowRating
+        {
+            if(highToLowRating)
+            {
+                self.modelList = self.orgModelList.sorted(by: { (x, y) -> Bool in
+                    x.getRating() > y.getRating()
+                })
+            }
+            else{
+                
+                self.modelList = self.orgModelList.sorted(by: { (x, y) -> Bool in
+                    x.getRating() < y.getRating()
+                })
+            }
+            
+        }
+        
+        updateViewWithData.onNext(true)
+    }
     
-//    private func checkifItsClear(filter:RestaurantFilterViewModel.InputParams )
-//    {
-//
-//
-//    }
-//
-//    private func getFilterInputObject() ->RestaurantFilterViewModel.InputParams
-//    {
-//
-//        return inputFilter
-//
-//    }
+    private func checkifItsClear(filter:StoreFilterViewModel.InputParams )
+    {
+
+
+    }
+
+    private func getFilterInputObject() ->StoreFilterViewModel.InputParams
+    {
+
+        return storeFilterInputParam.value
+
+    }
     
     
     // MARK:- Call WebService

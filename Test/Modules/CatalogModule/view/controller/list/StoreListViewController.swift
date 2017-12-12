@@ -38,11 +38,29 @@ class StoreListViewController : UIViewController
         
         setupCustomSearchBar()
         binding()
+        setupFilterNavBtn()
         prepareCell()
         
     }
     
-   
+    func setupFilterNavBtn()
+    {
+        
+        let filterNavBtn = UIBarButtonItem.init(title: "Filter", style: .plain, target: self, action: nil)
+        
+       
+        self.navigationItem.rightBarButtonItem = filterNavBtn
+        
+        
+        filterNavBtn.rx.tap.bind { [unowned self] in
+            
+            self.viewModel?.showStoreFilter()
+            
+            }.addDisposableTo(disposeBag)
+        
+        
+        
+    }
     
     // MARK:- Binding
     

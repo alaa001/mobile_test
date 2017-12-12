@@ -31,4 +31,23 @@ class CatalogNavigator {
     func popToStoreList(){
         controller?.navigationController?.popViewController(animated: true)
     }
+    
+    func showStoreFilter(filter:StoreFilterViewModel.InputParams,callBack:@escaping (StoreFilterViewModel.OutParams) ->())
+    {
+        let navigationController =  SwinjectStoryboard.create(name: "Catalog", bundle: nil).instantiateViewController(withIdentifier: "FilterNavigation") as! UINavigationController
+        
+        
+        let destinationController = SwinjectStoryboard.create(name: "Catalog", bundle: nil).instantiateViewController(withIdentifier: "StoreFilterViewController") as! StoreFilterViewController
+        
+        navigationController.viewControllers = [destinationController]
+        
+        destinationController.viewModel?.setFilter(filter: filter)
+        
+        controller?.present(navigationController, animated: true, completion: {
+            callBack(destinationController.viewModel!.getOutParams())
+            
+        })
+        
+        
+    }
 }

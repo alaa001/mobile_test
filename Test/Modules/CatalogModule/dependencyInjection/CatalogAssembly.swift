@@ -26,6 +26,10 @@ class CatalogAssembly: Assembly{
             return StoreListViewModel(service: r.resolve(CatalogService.self)!)
         }
         
+        container.register(StoreFilterViewModel.self) { r  in
+            return StoreFilterViewModel(service: r.resolve(CatalogService.self)!)
+        }
+        
         
         // MARK: - Service
         container.register(CatalogService.self) { r  in
@@ -68,6 +72,23 @@ class CatalogAssembly: Assembly{
         
         container.storyboardInitCompleted(StoreDetailViewController.self) {r, c in
             c.viewModel = r.resolve(StoreDetailsViewModel.self)
+            c.navigator = r.resolve(CatalogNavigator.self)
+            
+            c.navigator?.controller = c
+            c.viewModel?.navigator = c.navigator
+            
+            
+        }
+        
+        
+        container.storyboardInitCompleted(UINavigationController.self) {r, c in
+            
+            
+        }
+        
+        
+        container.storyboardInitCompleted(StoreFilterViewController.self) {r, c in
+            c.viewModel = r.resolve(StoreFilterViewModel.self)
             c.navigator = r.resolve(CatalogNavigator.self)
             
             c.navigator?.controller = c
